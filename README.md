@@ -10,6 +10,8 @@ This action runs pronto.
 
 ## Example usage
 
+```yaml
 uses: wtag/pronto-action@master
   with:
   github_token: ${{ secrets.GITHUB_TOKEN }}
+```
