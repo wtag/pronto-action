@@ -1,5 +1,11 @@
 name: 'Pronto'
 description: 'Run pronto for the current PR'
+inputs:
+  github_token:
+    description: 'Token to use for reporting'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  inputs:
+    - ${{ inputs.github_token }}
