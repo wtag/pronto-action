@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+set -eo pipefail
+
 SHA=$(jq --raw-output .head_commit.id "${GITHUB_EVENT_PATH}")
 OWNER=$(jq --raw-output .repository.owner.name "${GITHUB_EVENT_PATH}")
 REPO=$(jq --raw-output .repository.name "${GITHUB_EVENT_PATH}")
