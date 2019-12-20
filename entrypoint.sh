@@ -13,6 +13,8 @@ PULL_IDS=$(curl -H "Accept: application/vnd.github.groot-preview+json" -H "Autho
 if [ -z "${PULL_IDS}" ]; then
   echo "No pull request found, bailing out"
   exit 0
+else
+  echo "Running pronto for ${PULL_IDS}"
 fi
 
 git fetch --unshallow
