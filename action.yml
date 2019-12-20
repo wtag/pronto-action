@@ -7,5 +7,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  inputs:
+  args:
     - ${{ inputs.github_token }}
