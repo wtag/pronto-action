@@ -15,16 +15,6 @@ if [ -z "${PULL_IDS}" ]; then
   exit 0
 fi
 
-gem install --no-document \
-  pronto \
-  pronto-rubocop \
-  pronto-flay \
-  pronto-brakeman \
-  pronto-rails_best_practices \
-  pronto-rails_schema \
-  pronto-reek \
-  pronto-scss
-
 git fetch --unshallow
 
 for PULL_ID in $PULL_IDS; do
