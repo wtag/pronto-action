@@ -1,6 +1,6 @@
 FROM ruby:2.6-alpine
 
-RUN apk --no-cache add jq curl make cmake g++ openssl-dev
+RUN apk --no-cache add jq curl make cmake g++ openssl-dev git
 
 RUN gem install --no-document \
   pronto \
