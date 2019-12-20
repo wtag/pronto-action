@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-PRONTO_GITHUB_ACCESS_TOKEN="${1}"
+export PRONTO_GITHUB_ACCESS_TOKEN="${1}"
 
 SHA=$(jq --raw-output .head_commit.id "${GITHUB_EVENT_PATH}")
 OWNER=$(jq --raw-output .repository.owner.name "${GITHUB_EVENT_PATH}")
