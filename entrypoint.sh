@@ -6,8 +6,8 @@ SHA=$(jq --raw-output .head_commit.id "${GITHUB_EVENT_PATH}")
 OWNER=$(jq --raw-output .repository.owner.name "${GITHUB_EVENT_PATH}")
 REPO=$(jq --raw-output .repository.name "${GITHUB_EVENT_PATH}")
 HEAD_COMMIT_PULLS_URL="https://api.github.com/repos/${OWNER}/${REPO}/commits/${SHA}/pulls"
-PULL_IDS=$(curl -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${GITHUB_TOKEN}" $HEAD_COMMIT_PULLS_URL | jq --raw-output .[].number)
-PRONTO_GITHUB_ACCESS_TOKEN="${GITHUB_TOKEN}"
+PULL_IDS=$(curl -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${ACTIONS_RUNTIME_TOKEN}" $HEAD_COMMIT_PULLS_URL | jq --raw-output .[].number)
+PRONTO_GITHUB_ACCESS_TOKEN="${ACTIONS_RUNTIME_TOKEN}"
 
 if [ -z "${PULL_IDS}" ]; then
   echo "No pull request found, bailing out"
