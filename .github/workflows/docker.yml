@@ -13,6 +13,6 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@a72734e15780689886c6518c4dc2e17876d05d4e
       with:
         name: docker.pkg.github.com/wtag/pronto-action/pronto-action
-        username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
-        password: ${{ secrets.DOCKER_GITHUB_PASSWORD }}
+        username: github
+        password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
