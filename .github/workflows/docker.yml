@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Registry
-      uses: https://github.com/elgohr/Publish-Docker-Github-Action@a72734e15780689886c6518c4dc2e17876d05d4e
+      uses: elgohr/Publish-Docker-Github-Action@a72734e15780689886c6518c4dc2e17876d05d4e
       with:
         name: docker.pkg.github.com/wtag/pronto-action/pronto-action
         username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
