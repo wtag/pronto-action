@@ -6,6 +6,6 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://docker.pkg.github.com/wtag/pronto-action/pronto-action:latest'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.github_token }}
