@@ -2,16 +2,10 @@ FROM ruby:2.6-alpine
 
 RUN apk --no-cache add jq curl git
 
+COPY Gemfile* ./
+
 RUN apk --no-cache add --virtual build-deps make cmake g++ openssl-dev && \
-  gem install --no-document \
-    pronto \
-    pronto-rubocop \
-    pronto-flay \
-    pronto-brakeman \
-    pronto-rails_best_practices \
-    pronto-rails_schema \
-    pronto-reek \
-    pronto-scss && \
+  bundle install -j $(nproc) && \
   apk del build-deps
 
 COPY entrypoint.sh /entrypoint.sh
