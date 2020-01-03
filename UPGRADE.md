@@ -6,6 +6,8 @@
 
 ## Acceptance Criteria
 
+If the `docker run ...` command complains about the line length being too long, all is good:
+
 ```shell
 # Run the docker build:
 docker build -t pronto-action-local .
