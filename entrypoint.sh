@@ -3,6 +3,7 @@
 set -eo pipefail
 
 export PRONTO_GITHUB_ACCESS_TOKEN="${1}"
+export BASE_FOLDER="${2}"
 
 SHA=$(jq --raw-output .head_commit.id "${GITHUB_EVENT_PATH}")
 OWNER=$(jq --raw-output .repository.owner.name "${GITHUB_EVENT_PATH}")
@@ -18,6 +19,10 @@ else
 fi
 
 git fetch --unshallow
+
+if [ ! -z "${BASE_FOLDER}" ]; then
+  cd ${BASE_FOLDER}
+fi
 
 for PULL_ID in $PULL_IDS; do
   PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c origin/master
