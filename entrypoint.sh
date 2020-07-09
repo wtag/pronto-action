@@ -20,14 +20,11 @@ fi
 
 git fetch --unshallow
 
-if [ -z "${BASE_FOLDER}" ]; then
-  for PULL_ID in $PULL_IDS; do
-  PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c origin/master
-  done
-else
+if [ ! -z "${BASE_FOLDER}" ]; then
   cd ${BASE_FOLDER}
-  for PULL_ID in $PULL_IDS; do
-  PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c origin/master
-  done
 fi
+
+for PULL_ID in $PULL_IDS; do
+  PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c origin/master
+done
 
