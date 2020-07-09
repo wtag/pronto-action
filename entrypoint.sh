@@ -27,4 +27,3 @@ fi
 for PULL_ID in $PULL_IDS; do
   PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c origin/master
 done
-
