@@ -5,7 +5,7 @@ inputs:
     description: 'Token to use for reporting'
     required: true
   code_directory:
-    description: 'ruby code directory in monorepo'
+    description: 'path to code directory'
     required: false
 runs:
   using: 'docker'
