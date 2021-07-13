@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     axiom-types (0.1.1)
@@ -87,7 +87,7 @@ GEM
       pronto (~> 0.10.0)
       scss_lint (~> 0.43, >= 0.43.0)
     psych (3.1.0)
-    public_suffix (4.0.2)
+    public_suffix (4.0.6)
     rails_best_practices (1.19.5)
       activesupport
       code_analyzer (>= 0.5.1)
