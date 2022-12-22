@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 set -eo pipefail
-
+echo "Hello Starting"
 export PRONTO_GITHUB_ACCESS_TOKEN="${1}"
 
 curlGH() {
