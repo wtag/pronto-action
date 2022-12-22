@@ -2,4 +2,4 @@
 
 set -eo pipefail
 
-echo "How are you?"
+echo "New Message"
