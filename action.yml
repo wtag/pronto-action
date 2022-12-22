@@ -4,8 +4,16 @@ inputs:
   github_token:
     description: 'Token to use for reporting'
     required: true
+  github_repo_from_env:
+    description: 'repo name(and owner) to use for API'
+    required: true
+  github_sha_from_env:
+    description: 'PR sha that trigger the workflow'
+    required: true
 runs:
   using: 'docker'
   image: 'docker://subrato36/pronto-image:latest'
   args:
     - ${{ inputs.github_token }}
+    - ${{ inputs.github_repo_from_env }}
+    - ${{ inputs.github_sha_from_env }}
