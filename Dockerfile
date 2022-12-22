@@ -1,5 +1,5 @@
 FROM ruby:2.6-alpine
-USER root
+
 RUN apk --no-cache add jq curl git
 RUN gem install bundler
 
