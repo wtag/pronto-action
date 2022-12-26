@@ -8,8 +8,8 @@ curlGH() {
   curl --silent -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${PRONTO_GITHUB_ACCESS_TOKEN}" ${@}
 }
 
-SHA=$(jq --raw-output .head_commit.id "${GITHUB_EVENT_PATH}")
-OWNER=$(jq --raw-output .repository.owner.name "${GITHUB_EVENT_PATH}")
+SHA=$(jq --raw-output .after "${GITHUB_EVENT_PATH}")
+OWNER=$(jq --raw-output .repository.owner.login "${GITHUB_EVENT_PATH}")
 REPO=$(jq --raw-output .repository.name "${GITHUB_EVENT_PATH}")
 HEAD_COMMIT_PULLS_URL="https://api.github.com/repos/${OWNER}/${REPO}/commits/${SHA}/pulls"
 PULL_IDS=$(curlGH $HEAD_COMMIT_PULLS_URL | jq --raw-output .[].number)
