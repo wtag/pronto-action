@@ -23,6 +23,10 @@ fi
 
 git fetch --unshallow
 
+git --version
+
+git config --global safe.directory '*'
+
 for PULL_ID in $PULL_IDS; do
   REF=$(curlGH "https://api.github.com/repos/${OWNER}/${REPO}/pulls/${PULL_ID}" | jq --raw-output .base.ref)
   PRONTO_PULL_REQUEST_ID=$PULL_ID /usr/local/bundle/bin/pronto run -f github_status github_pr -c "origin/${REF}"
