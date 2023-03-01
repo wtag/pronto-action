@@ -21,11 +21,11 @@ else
   echo "Running pronto for PRs ${PULL_IDS}"
 fi
 
-git fetch --unshallow
-
 git --version
 
 git config --global safe.directory '*'
+
+git fetch --unshallow
 
 for PULL_ID in $PULL_IDS; do
   REF=$(curlGH "https://api.github.com/repos/${OWNER}/${REPO}/pulls/${PULL_ID}" | jq --raw-output .base.ref)
