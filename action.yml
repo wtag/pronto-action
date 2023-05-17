@@ -4,8 +4,12 @@ inputs:
   github_token:
     description: 'Token to use for reporting'
     required: true
+  code_directory:
+    description: 'path to code directory'
+    required: false
 runs:
   using: 'docker'
   image: 'docker://welltravel/pronto-action:latest'
   args:
     - ${{ inputs.github_token }}
+    - ${{ inputs.code_directory }}
