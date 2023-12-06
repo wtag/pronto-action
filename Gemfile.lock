@@ -68,7 +68,7 @@ GEM
       rails_best_practices (~> 1.16, >= 1.15.0)
     pronto-rails_schema (0.11.0)
       pronto (>= 0.10, < 0.12)
-    pronto-reek (0.11.0)
+    pronto-reek (0.11.1)
       pronto (~> 0.11.0)
       reek (>= 4.2, < 7.0)
     pronto-rubocop (0.11.1)
