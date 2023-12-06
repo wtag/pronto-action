@@ -9,5 +9,4 @@ gem 'pronto-rails_schema', require: false
 gem 'pronto-reek', require: false
 gem 'pronto-scss', require: false
 
-gem 'rubocop', require: false
-gem 'reek'
+gem 'rubocop', '~> 0.78.0', require: false
