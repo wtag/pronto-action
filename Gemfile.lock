@@ -145,7 +145,7 @@ GEM
     unicode-display_width (2.5.0)
 
 PLATFORMS
-  x86_64-darwin-22
+  aarch64-linux
 
 DEPENDENCIES
   pronto
