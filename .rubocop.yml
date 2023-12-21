@@ -1,2 +1,2 @@
 inherit_from:
-  - https://raw.githubusercontent.com/wtag/default-configs/Update-Rubocop-Config-to-Ruby-3.2/rubocop-default-config-ruby3.2.yml
+  - https://raw.githubusercontent.com/wtag/default-configs/master/rubocop-default-config-ruby3.2.yml
