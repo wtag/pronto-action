@@ -6,6 +6,6 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://welltravel/pronto-action:v3.2'
+  image: 'docker://welltravel/pronto-action:latest'
   args:
     - ${{ inputs.github_token }}
