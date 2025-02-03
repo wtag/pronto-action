@@ -1,4 +1,4 @@
-FROM ruby:3.2-alpine
+FROM ruby:3.3.1-alpine
 
 RUN apk --no-cache add jq curl git
 RUN gem install bundler
