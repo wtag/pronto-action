@@ -3,6 +3,7 @@
 set -eo pipefail
 
 export PRONTO_GITHUB_ACCESS_TOKEN="${1}"
+export BASE_FOLDER="${2}"
 
 curlGH() {
   curl --silent -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${PRONTO_GITHUB_ACCESS_TOKEN}" ${@}
@@ -22,6 +23,10 @@ else
 fi
 
 git fetch --unshallow
+
+if [ ! -z "${BASE_FOLDER}" ]; then
+  cd ${BASE_FOLDER}
+fi
 
 for PULL_ID in $PULL_IDS; do
   REF=$(curlGH "https://api.github.com/repos/${OWNER}/${REPO}/pulls/${PULL_ID}" | jq --raw-output .base.ref)
