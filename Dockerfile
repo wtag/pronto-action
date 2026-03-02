@@ -1,6 +1,6 @@
 FROM ruby:3.2-alpine
 
-# Runtime deps
+# Runtime dependencies
 RUN apk --no-cache add \
   jq \
   curl \
@@ -11,12 +11,13 @@ RUN gem install bundler
 
 COPY Gemfile* ./
 
-# Build deps
+# Build dependencies for native gems (ffi + rugged)
 RUN apk --no-cache add --virtual build-deps \
     build-base \
     linux-headers \
     libffi-dev \
     openssl-dev \
+    cmake \
   && bundle install -j $(nproc) \
   && apk del build-deps
 
