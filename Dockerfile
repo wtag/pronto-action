@@ -1,13 +1,24 @@
 FROM ruby:3.2-alpine
 
-RUN apk --no-cache add jq curl git
+# Runtime deps
+RUN apk --no-cache add \
+  jq \
+  curl \
+  git \
+  libffi
+
 RUN gem install bundler
 
 COPY Gemfile* ./
 
-RUN apk --no-cache add --virtual build-deps make cmake g++ openssl-dev && \
-  bundle install -j $(nproc) && \
-  apk del build-deps
+# Build deps
+RUN apk --no-cache add --virtual build-deps \
+    build-base \
+    linux-headers \
+    libffi-dev \
+    openssl-dev \
+  && bundle install -j $(nproc) \
+  && apk del build-deps
 
 COPY entrypoint.sh /entrypoint.sh
 
