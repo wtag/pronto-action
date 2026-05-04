@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+git config --system --add safe.directory /github/workspace
+
 export PRONTO_GITHUB_ACCESS_TOKEN="${1}"
 
 curlGH() {
